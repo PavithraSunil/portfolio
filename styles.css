@@ -422,6 +422,54 @@ body {
     gap: 2rem;
 }
 
+.about-wrapper {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+/* Polaroid Style */
+.polaroid-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.polaroid {
+    background: #ffffff;
+    padding: 1rem 1rem 3.5rem 1rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3), 
+                0 8px 40px rgba(0, 0, 0, 0.2);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+    width: 280px;
+    position: relative;
+}
+
+.polaroid:hover {
+    transform: rotate(0deg) scale(1.05);
+}
+
+.polaroid-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.polaroid-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
+    color: #333;
+    text-align: center;
+    margin-top: 1rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 .about-card {
     background: rgba(42, 31, 61, 0.6);
     border: 1px solid rgba(255, 158, 197, 0.2);
@@ -1090,27 +1138,33 @@ body {
 
     /* Hero Section */
     .hero {
-        padding: 2rem 1rem;
+        padding: 1.5rem 1rem;
         min-height: auto;
-        padding-top: 8rem;
+        padding-top: 7rem;
     }
     
     .hero-content {
         width: 100%;
+        max-width: 100%;
     }
 
     .hero-terminal {
-        margin-bottom: 2rem;
-        font-size: 0.85rem;
+        margin-bottom: 1.5rem;
+        font-size: 0.75rem;
+        border-radius: 6px;
     }
     
     .terminal-header {
-        padding: 0.6rem 1rem;
+        padding: 0.5rem 0.8rem;
     }
     
     .terminal-body {
-        padding: 1.2rem;
-        min-height: 60px;
+        padding: 1rem;
+        min-height: 50px;
+    }
+    
+    .terminal-line {
+        font-size: 0.8rem;
     }
 
     .hero-title {
@@ -1142,31 +1196,61 @@ body {
 
     /* Sections */
     .section {
-        padding: 5rem 1.5rem 3rem;
+        padding: 4rem 1.5rem 2.5rem;
         min-height: auto;
     }
 
     .section-title {
-        font-size: 1.8rem;
-        margin-bottom: 2.5rem;
+        font-size: 1.6rem;
+        margin-bottom: 2rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.5rem;
-        letter-spacing: 2px;
+        letter-spacing: 1.5px;
+        line-height: 1.3;
     }
     
     .section-number {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
 
     /* About Section */
+    .about-wrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        align-items: center;
+    }
+    
+    .polaroid-container {
+        justify-content: center;
+        order: -1;
+    }
+    
+    .polaroid {
+        width: 260px;
+        max-width: 90%;
+        transform: rotate(-1deg);
+        padding: 0.8rem 0.8rem 3rem 0.8rem;
+    }
+    
+    .polaroid-image {
+        height: 280px;
+        width: 100%;
+    }
+    
+    .polaroid-label {
+        font-size: 0.85rem;
+        margin-top: 0.8rem;
+    }
+    
     .about-card {
         padding: 1.5rem;
     }
     
     .about-text {
-        font-size: 1rem;
+        font-size: 0.95rem;
         line-height: 1.7;
+        margin-bottom: 1.2rem;
     }
     
     .about-tags {
@@ -1264,48 +1348,78 @@ body {
     }
     
     .connect-title {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
     }
     
     .connect-description {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
         line-height: 1.6;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        gap: 0.4rem;
     }
     
     .form-group label {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
     }
     
     .form-group input,
     .form-group textarea {
-        padding: 0.8rem 1rem;
-        font-size: 0.95rem;
+        padding: 0.9rem 1rem;
+        font-size: 1rem;
+        border-radius: 6px;
+        -webkit-appearance: none;
+        appearance: none;
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
     }
     
     .submit-btn {
-        padding: 0.9rem 1.5rem;
+        padding: 1rem 1.8rem;
         font-size: 0.9rem;
+        letter-spacing: 1px;
+        width: 100%;
+        max-width: 100%;
     }
     
     .info-item {
-        flex-direction: column;
-        gap: 0.5rem;
-        align-items: flex-start;
+        flex-direction: row;
+        gap: 1rem;
+        align-items: center;
     }
     
     .info-item i {
         margin-top: 0;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+    }
+    
+    .info-content {
+        flex: 1;
+    }
+    
+    .info-value {
+        word-break: break-word;
+        font-size: 0.95rem;
     }
     
     .social-links {
         justify-content: center;
         flex-wrap: wrap;
+        gap: 0.8rem;
     }
     
     .social-link {
-        width: 40px;
-        height: 40px;
-        font-size: 1.1rem;
+        width: 44px;
+        height: 44px;
+        font-size: 1.2rem;
+        touch-action: manipulation;
     }
 
     /* Footer */
@@ -1371,6 +1485,74 @@ body {
         padding: 0 1rem;
     }
     
+    .hero {
+        padding-top: 6rem;
+        padding-bottom: 1rem;
+    }
+    
+    .hero-terminal {
+        font-size: 0.7rem;
+        margin-bottom: 1rem;
+    }
+    
+    .terminal-body {
+        padding: 0.8rem;
+        min-height: 45px;
+    }
+    
+    .hero-title {
+        font-size: clamp(1.8rem, 12vw, 2.5rem);
+        margin: 1rem 0;
+    }
+    
+    .glitch-large {
+        font-size: clamp(1.8rem, 12vw, 2.5rem);
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .hero-location {
+        font-size: 0.85rem;
+    }
+    
+    .section {
+        padding: 3.5rem 1rem 2rem;
+    }
+    
+    .section-title {
+        font-size: 1.4rem;
+        margin-bottom: 1.8rem;
+    }
+    
+    .polaroid {
+        width: 240px;
+        max-width: 85%;
+        padding: 0.7rem 0.7rem 2.5rem 0.7rem;
+    }
+    
+    .polaroid-image {
+        height: 260px;
+    }
+    
+    .polaroid-label {
+        font-size: 0.8rem;
+        margin-top: 0.7rem;
+    }
+    
+    .about-wrapper {
+        gap: 1.5rem;
+    }
+    
+    .about-card {
+        padding: 1.2rem;
+    }
+    
+    .about-text {
+        font-size: 0.9rem;
+    }
+    
     .about-card,
     .experience-card,
     .education-card,
@@ -1385,7 +1567,21 @@ body {
     }
     
     .submit-btn {
-        padding: 0.8rem 1.2rem;
+        padding: 0.95rem 1.5rem;
+        font-size: 0.85rem;
+        width: 100%;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        font-size: 0.95rem;
+    }
+    
+    .connect-title {
+        font-size: 1.3rem;
+    }
+    
+    .connect-description {
         font-size: 0.85rem;
     }
     
