@@ -160,9 +160,7 @@ Worked on:
 
 📧 Email: pavithrasunil51@gmail.com
 
-💼 LinkedIn: *(Add your LinkedIn URL)*
-
-🌐 Portfolio: *(Add your Portfolio URL)*
+💼 LinkedIn: https://www.linkedin.com/in/pavithra-s-45a9b8333?utm_source=share_via&utm_content=profile&utm_medium=member_android
 
 💻 GitHub: https://github.com/PavithraSunil
 
