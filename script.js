@@ -133,7 +133,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe all cards and sections
-document.querySelectorAll('.about-card, .experience-card, .education-card, .skill-category').forEach(el => {
+document.querySelectorAll('.about-card, .experience-card, .education-card, .skill-category, .project-card, .certification-card, .achievement-card').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(30px)';
     el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
@@ -209,7 +209,7 @@ skillBars.forEach(bar => {
 });
 
 // ===== CARD HOVER GLOW EFFECT =====
-document.querySelectorAll('.about-card, .experience-card, .education-card, .contact-link').forEach(card => {
+document.querySelectorAll('.about-card, .experience-card, .education-card, .contact-link, .project-card, .certification-card, .achievement-card').forEach(card => {
     card.addEventListener('mousemove', (e) => {
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;

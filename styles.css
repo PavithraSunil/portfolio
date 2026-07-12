@@ -1071,6 +1071,244 @@ body {
     font-weight: 600;
 }
 
+/* ===== NEW COMPONENTS (EXPERIENCE, EDUCATION, PROJECTS, CERTIFICATIONS, ACHIEVEMENTS) ===== */
+
+.experience-list {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+    list-style: none;
+}
+
+.experience-list li {
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.experience-list li::before {
+    content: '•';
+    color: var(--primary);
+    position: absolute;
+    left: -1rem;
+    font-weight: bold;
+}
+
+.education-coursework {
+    margin-top: 1rem;
+    font-family: 'Nunito', sans-serif;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    text-align: left;
+}
+
+.education-coursework strong {
+    color: var(--primary);
+}
+
+/* Projects Grid & Cards */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background: rgba(42, 31, 61, 0.6);
+    border: 1px solid rgba(255, 158, 197, 0.2);
+    padding: 2.5rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.project-card:hover {
+    border-color: rgba(255, 158, 197, 0.5);
+    transform: translateY(-5px);
+}
+
+.project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.project-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.project-period {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    white-space: nowrap;
+    opacity: 0.8;
+}
+
+.project-subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.project-links {
+    margin-top: auto;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--text-primary);
+}
+
+/* Certifications Grid & Cards */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.certification-card {
+    background: rgba(42, 31, 61, 0.4);
+    border: 1px solid rgba(255, 158, 197, 0.15);
+    padding: 1.5rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+.certification-card:hover {
+    border-color: rgba(255, 158, 197, 0.4);
+    transform: translateY(-3px);
+    background: rgba(42, 31, 61, 0.6);
+}
+
+.certification-icon {
+    font-size: 2rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    width: 40px;
+    text-align: center;
+}
+
+.certification-content {
+    flex-grow: 1;
+}
+
+.certification-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    line-height: 1.4;
+    margin-bottom: 0.25rem;
+}
+
+.certification-issuer {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+/* Achievements Grid & Cards */
+.achievements-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.achievement-card {
+    background: rgba(42, 31, 61, 0.5);
+    border: 1px solid rgba(255, 158, 197, 0.15);
+    padding: 2rem;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.achievement-card:hover {
+    border-color: rgba(255, 158, 197, 0.4);
+    transform: translateY(-5px);
+}
+
+.achievement-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+}
+
+.achievement-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.25rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.achievement-badge {
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 158, 197, 0.15);
+    border: 1px solid var(--primary);
+    border-radius: 12px;
+    font-size: 0.75rem;
+    color: var(--primary);
+    white-space: nowrap;
+}
+
+.achievement-description {
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* Navigation Spacing Adjustments */
+@media (min-width: 769px) and (max-width: 1200px) {
+    .nav-menu {
+        gap: 1rem;
+    }
+    .nav-link {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Tablet and below */
@@ -1603,6 +1841,21 @@ body {
     
     .section {
         padding: 4rem 1.5rem 2.5rem;
+    }
+    
+    .nav-menu {
+        top: 60px;
+        padding: 1rem 0;
+        overflow-y: auto;
+        max-height: calc(100vh - 60px);
+    }
+    
+    .nav-menu li {
+        margin: 0.2rem 0;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0;
     }
 }
 
