@@ -256,35 +256,52 @@ if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        const formData = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
-        
-        // Here you would typically send the form data to a backend
-        // For now, we'll just log it and show a success message
-        console.log('Form submitted:', formData);
-        
-        // Show success message
         const submitBtn = contactForm.querySelector('.submit-btn');
         const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-        submitBtn.style.background = 'linear-gradient(135deg, var(--accent), var(--primary))';
         
-        // Reset form
-        contactForm.reset();
+        // Disable button and show loading state
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
         
-        // Reset button after 3 seconds
-        setTimeout(() => {
+        const formData = new FormData(contactForm);
+        
+        fetch("https://formspree.io/f/xzdnzbbg", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Show success message
+                submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                submitBtn.style.background = 'linear-gradient(135deg, var(--accent), var(--primary))';
+                contactForm.reset();
+            } else {
+                response.json().then(data => {
+                    if (Object.prototype.hasOwnProperty.call(data, 'errors')) {
+                        alert(data.errors.map(error => error.message).join(", "));
+                    } else {
+                        alert("Oops! There was a problem submitting your form");
+                    }
+                });
+                submitBtn.innerHTML = originalText;
+            }
+        })
+        .catch(error => {
+            console.error('Error submitting form:', error);
+            alert("Oops! There was a problem submitting your form. Please try again.");
             submitBtn.innerHTML = originalText;
-            submitBtn.style.background = '';
-        }, 3000);
-        
-        // You can integrate with email services like:
-        // - EmailJS: https://www.emailjs.com/
-        // - Formspree: https://formspree.io/
-        // - Your own backend API
+        })
+        .finally(() => {
+            submitBtn.disabled = false;
+            // Reset button to original state after 3 seconds
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+            }, 3000);
+        });
     });
 }
 
